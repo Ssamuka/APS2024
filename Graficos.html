@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos de Barras</title>
+    <!-- Incluindo a biblioteca ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        .chart-container {
+            max-width: 400px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Div onde o gráfico Ambiental será renderizado -->
+    <div id="chart-ambiental" class="chart-container"></div>
+    <!-- Div onde o gráfico Social será renderizado -->
+    <div id="chart-social" class="chart-container"></div>
+    <!-- Div onde o gráfico Governança será renderizado -->
+    <div id="chart-governanca" class="chart-container"></div>
+    <!-- Script para criar e renderizar os gráficos -->
+    <script>
+        // Opções para o gráfico Ambiental
+        var optionsAmbiental = {
+            series: [
+                {
+                    name: 'Alcance',
+                    data: [
+                        {
+                            x: 'Ambiental',
+                            y: 663713,
+                            goals: [
+                                {
+                                    name: 'Meta',
+                                    value: 629048,
+                                    strokeHeight: 5,
+                                    strokeColor: '#FFA500' // Laranja
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            chart: {
+                height: 350,
+                type: 'bar'
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '60%'
+                }
+            },
+            colors: ['#FFA500'], // Laranja
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: true,
+                customLegendItems: ['Alcance', 'Meta'],
+                markers: {
+                    fillColors: ['#FFA500', '#FFA500'] // Laranja
+                }
+            },
+            title: {
+                text: 'Gráfico Ambiental (m³)',
+                align: 'center'
+            }
+        };
+
+        // Opções para o gráfico Social
+        var optionsSocial = {
+            series: [
+                {
+                    name: 'Social',
+                    data: [
+                        {
+                            x: 'Social',
+                            y: 40.9, // Em porcentagem
+                            goals: [
+                                {
+                                    name: 'Meta',
+                                    value: 40, // Em porcentagem
+                                    strokeHeight: 5,
+                                    strokeColor: '#FFA500' // Laranja
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            chart: {
+                height: 350,
+                type: 'bar'
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '60%'
+                }
+            },
+            colors: ['#FFA500'], // Laranja
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: true,
+                customLegendItems: ['Alcance', 'Meta'],
+                markers: {
+                    fillColors: ['#FFA500', '#FFA500'] // Laranja
+                }
+            },
+            title: {
+                text: 'Gráfico Social (%)',
+                align: 'center'
+            }
+        };
+
+        // Opções para o gráfico Governança
+        var optionsGovernanca = {
+            series: [
+                {
+                    name: 'Governança',
+                    data: [
+                        {
+                            x: 'Governança',
+                            y: 100, // Em porcentagem
+                            goals: [
+                                {
+                                    name: 'Meta',
+                                    value: 100, // Em porcentagem
+                                    strokeHeight: 5,
+                                    strokeColor: '#FFA500' // Laranja
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            chart: {
+                height: 350,
+                type: 'bar'
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '60%'
+                }
+            },
+            colors: ['#FFA500'], // Laranja
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: true,
+                showForSingleSeries: true,
+                customLegendItems: ['Alcance', 'Meta'],
+                markers: {
+                    fillColors: ['#FFA500', '#FFA500'] // Laranja
+                }
+            },
+            title: {
+                text: 'Gráfico Governança (%)',
+                align: 'center'
+            }
+        };
+
+        // Renderizando os gráficos
+        var chartAmbiental = new ApexCharts(document.querySelector("#chart-ambiental"), optionsAmbiental);
+        chartAmbiental.render();
+
+        var chartSocial = new ApexCharts(document.querySelector("#chart-social"), optionsSocial);
+        chartSocial.render();
+
+        var chartGovernanca = new ApexCharts(document.querySelector("#chart-governanca"), optionsGovernanca);
+        chartGovernanca.render();
+    </script>
+</body>
+</html>
